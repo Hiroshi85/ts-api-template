@@ -18,4 +18,4 @@ All scripts are run from the root of the project.
 | `yarn install`         | Installs dependencies                            |
 | `yarn dev`             | Starts local dev server at `localhost:3000`      |
 | `yarn build`           | Build your production site to `./dist/`          |
-| `yarn format`          | Format your files on `./src`                     |
+| `yarn format`          | Formats files inside `./src`                     |
