@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+#environmets variables
+.env
+
+#error logs dependency manager
+yarn-error.log
