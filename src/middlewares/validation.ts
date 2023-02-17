@@ -16,7 +16,7 @@ const validationPipe = (schema: Joi.ObjectSchema) => {
     if (valid) {
       next();
     } else {
-      handleHttpError(res, "Validacion fallida", error, 400);
+      handleHttpError(res, "Validacion fallida", error, 422);
     }
   };
 };
