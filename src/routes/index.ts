@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Express } from "express";
 import { router as WebRouter } from "./web";
 import { router as ApiRouter } from "./api";
 
-const router: Router = Router();
+function loadRoutes(app: Express) {
+  app.use("/api", ApiRouter);
+  app.use("/", WebRouter);
+}
 
-router.use("/api", ApiRouter);
-router.use("/", WebRouter);
-
-export { router };
+export { loadRoutes };

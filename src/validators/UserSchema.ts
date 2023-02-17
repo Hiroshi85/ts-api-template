@@ -1,1 +1,1 @@
-import {} from "joi"
+import {} from "joi";
