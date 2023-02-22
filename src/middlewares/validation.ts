@@ -1,24 +1,18 @@
 import { Request, Response, NextFunction } from "express";
-import Joi from "joi";
+import { AnyZodObject } from "zod";
 import { handleHttpError } from "../utils/handleError";
 
-Joi.object();
+const validationPipe = (schema: AnyZodObject) => {
+	(req: Request, res: Response, next: NextFunction) => {
+		const { body } = req;
 
-const validationPipe = (schema: Joi.ObjectSchema) => {
-  (req: Request, res: Response, next: NextFunction) => {
-    const { body } = req;
-
-    const { error } = schema.validate(body, {
-      //stripUnknown: true,
-      abortEarly: false,
-    });
-    const valid = error === null;
-    if (valid) {
-      next();
-    } else {
-      handleHttpError(res, "Validacion fallida", error, 422);
-    }
-  };
+		const result = schema.safeParse(body);
+		if (result.success) {
+			next();
+		} else {
+			handleHttpError(res, "Validacion fallida", result.error, 422);
+		}
+	};
 };
 
 export { validationPipe };

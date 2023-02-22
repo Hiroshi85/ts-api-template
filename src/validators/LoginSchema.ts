@@ -1,9 +1,8 @@
-import Joi from "joi";
+import { z } from "zod";
 
-const schema = Joi.object({
-  email: Joi.string().email({ minDomainSegments: 2 }).required(),
-
-  password: Joi.string().min(4).max(20),
+const schema = z.object({
+	email: z.coerce.string().email(),
+	password: z.coerce.string().min(4).max(20),
 });
 
 export { schema };

@@ -1,6 +1,6 @@
-interface UserDto{
-    email: string,
-    password: string
+interface UserDto {
+	email: string;
+	password: string;
 }
 
-export {UserDto};
+export { UserDto };

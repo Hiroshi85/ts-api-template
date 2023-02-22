@@ -10,14 +10,14 @@ const app: Express = express();
 //App Middlewares (for all routes)
 
 app.use(
-  AppMiddlewares.helmetOptions,
-  express.json(),
-  express.urlencoded({ extended: true })
+	AppMiddlewares.helmetOptions,
+	express.json(),
+	express.urlencoded({ extended: true })
 );
 
 //extended logger in dev EXECUTION RUNTIME
 if (process.env.NODE_ENV !== "prod") {
-  app.use(morgan("dev"));
+	app.use(morgan("dev"));
 }
 
 //load routes
