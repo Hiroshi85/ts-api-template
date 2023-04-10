@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express, { Express } from "express";
+import compression from "compression";
 
 import { loadRoutes } from "./routes";
 import morgan from "morgan";
@@ -10,6 +11,7 @@ const app: Express = express();
 //App Middlewares (for all routes)
 
 app.use(
+	compression(),
 	AppMiddlewares.helmetOptions,
 	express.json(),
 	express.urlencoded({ extended: true })
