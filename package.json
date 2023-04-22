@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "NODE_ENV=prod node ./dist",
-    "dev": "NODE_ENV=dev tsc-watch --onSuccess 'node ./dist'",
+    "start": "cross-env NODE_ENV=prod node ./dist",
+    "dev": "cross-env NODE_ENV=dev tsc-watch --onSuccess \"node ./dist\"",
     "test": "echo 'nothing here'",
     "lint": "eslint ./src --ext .ts",
     "lint:fix": "eslint ./src --ext .ts --fix",
@@ -34,6 +34,7 @@
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
